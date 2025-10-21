@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemini Chatbot</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen">
+  <div class="chat-container bg-gray-800 rounded-2xl shadow-lg w-11/12 md:w-2/3 lg:w-1/2 p-6">
+    <h1 class="text-2xl font-semibold text-center mb-4 text-cyan-400">💬 Gemini Chatbot</h1>
+    <div id="chat-box" class="chat-box overflow-y-auto h-96 p-3 border border-gray-700 rounded-lg mb-4 bg-gray-900"></div>
+    <div class="flex space-x-2">
+      <input id="user-input" type="text" placeholder="Ketik pesan..." 
+             class="flex-1 p-3 rounded-lg bg-gray-700 border border-gray-600 text-white outline-none">
+      <button id="send-btn" class="bg-cyan-500 hover:bg-cyan-600 text-white px-5 py-3 rounded-lg">Kirim</button>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
+
