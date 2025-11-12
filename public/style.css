@@ -1,27 +1,53 @@
-/* Import Tailwind tanpa perlu install */
-@import url("https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css");
-
-/* Animasi & efek tambahan */
-body {
-  transition: background-color 0.3s ease;
-}
-
-#chat-box {
-  display: flex;
-  flex-direction: column;
-}
-
-#chat-box div {
-  animation: fadeIn 0.3s ease;
-}
-
+/* Animasi lembut untuk elemen masuk */
 @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Terapkan animasi ke bubble chat */
+#chat-box div {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Scrollbar lembut (warna pastel) */
+#chat-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+#chat-box::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 10px;
+}
+
+#chat-box::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #bae6fd 0%, #fbcfe8 100%);
+  border-radius: 10px;
+}
+
+/* Hover effect lembut pada tombol */
+#send-btn {
+  transition: all 0.25s ease;
+}
+
+#send-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(56, 189, 248, 0.4);
+}
+
+/* Fokus halus pada input */
+#user-input:focus {
+  box-shadow: 0 0 0 3px rgba(125, 211, 252, 0.4);
+}
+
+/* Smooth background gradient animation (opsional) */
+@keyframes gradientFlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+body {
+  background: linear-gradient(-45deg, #fde2e4, #e0f2fe, #f3e8ff, #fdf2f8);
+  background-size: 300% 300%;
+  animation: gradientFlow 12s ease infinite;
 }

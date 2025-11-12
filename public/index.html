@@ -1,22 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Gemini Chatbot</title>
-  <link rel="stylesheet" href="style.css">
+
+  <!-- ✅ Tailwind CSS CDN langsung dimuat di sini -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Tema warna pastel custom -->
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            pastelBlue: "#bae6fd",
+            pastelPink: "#fbcfe8",
+            pastelPurple: "#e9d5ff",
+          },
+        },
+      },
+    };
+  </script>
+
+  <!-- Tambahan animasi & scrollbar lembut -->
+  <style>
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.25 ease-in-out;
+    }
+
+    #chat-box div {
+      animation: fadeIn 0.3s ease-in-out;
+    }
+  </style>
 </head>
-<body class="bg-gray-900 text-white flex flex-col items-center justify-center min-h-screen">
-  <div class="chat-container bg-gray-800 rounded-2xl shadow-lg w-11/12 md:w-2/3 lg:w-1/2 p-6">
-    <h1 class="text-2xl font-semibold text-center mb-4 text-cyan-400">💬 Gemini Chatbot</h1>
-    <div id="chat-box" class="chat-box overflow-y-auto h-96 p-3 border border-gray-700 rounded-lg mb-4 bg-gray-900"></div>
-    <div class="flex space-x-2">
-      <input id="user-input" type="text" placeholder="Ketik pesan..." 
-             class="flex-1 p-3 rounded-lg bg-gray-700 border border-gray-600 text-white outline-none">
-      <button id="send-btn" class="bg-cyan-500 hover:bg-cyan-600 text-white px-5 py-3 rounded-lg">Kirim</button>
+
+<body class="min-h-screen flex items-center justify-center bg-gradient-to-br from-pink-100 via-sky-100 to-purple-100 font-sans text-gray-700">
+
+  <div class="w-11/12 md:w-2/3 lg:w-1/2 backdrop-blur-lg bg-white/50 border border-white/30 shadow-2xl rounded-3xl p-6">
+    <h1 class="text-3xl font-semibold text-center mb-6 text-sky-500">💬 Gemini Chatbot</h1>
+
+    <div id="chat-box"
+         class="h-96 overflow-y-auto p-4 bg-white/60 rounded-2xl border border-white/40 shadow-inner space-y-4">
+      <div class="text-center text-sm text-gray-400">Mulai percakapan dengan Gemini ✨</div>
+    </div>
+
+    <div class="mt-5 flex space-x-3">
+      <input
+        id="user-input"
+        type="text"
+        placeholder="Ketik pesan kamu..."
+        class="flex-1 p-3 rounded-xl border border-gray-300 bg-white/70 placeholder-gray-400 text-gray-700 outline-none focus:ring-2 focus:ring-sky-400 focus:border-transparent transition"
+      />
+      <button
+        id="send-btn"
+        class="px-6 py-3 bg-sky-400 hover:bg-sky-500 text-white font-medium rounded-xl shadow-md transition active:scale-95"
+      >
+        Kirim
+      </button>
     </div>
   </div>
+
   <script src="script.js"></script>
 </body>
 </html>
-
