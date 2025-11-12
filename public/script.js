@@ -63,10 +63,21 @@ async function sendMessage() {
 }
 
 function formatBotMessage(text) {
-  // ubah list dan newline biar rapi
-  const formatted = text
-    .replace(/\n{2,}/g, "\n\n") // jaga jarak antar paragraf
-    .replace(/- (.+)/g, "• $1"); // ubah tanda '-' jadi bullet
+  if (!text) return "";
+
+  // 1️⃣ Biar tanda **bold** tampil jadi tebal
+  // Contoh: **Fullstack developer** -> <strong>Fullstack developer</strong>
+  let formatted = text.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+
+  // 2️⃣ Ubah list biar pakai bullet
+  formatted = formatted.replace(/(^|\n)- (.+)/g, "$1• $2");
+
+  // 3️⃣ Biar paragraf dan baris baru tetap rapi
+  formatted = formatted
+    .split("\n\n")
+    .map(p => `<p class="mb-2">${p.trim()}</p>`)
+    .join("");
+
   return formatted;
 }
 
